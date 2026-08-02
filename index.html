@@ -22,12 +22,11 @@
         <div class="dropdown-content">
           <nav class="site-nav" aria-label="Primary navigation">
             <ul id="primary-menu" class="nav-list" role="menu">
-              <li class="nav-item" role="none"><a role="menuitem" href="#home">Home</a></li>
-              <li class="nav-item" role="none"><a role="menuitem" href="#legacy">Our Legacy</a></li>
-              <li class="nav-item" role="none"><a role="menuitem" href="#events">Upcoming Events</a></li>
-              <li class="nav-item" role="none"><a role="menuitem" href="#gallery">Gallery</a></li>
-              <li class="nav-item" role="none"><a role="menuitem" href="#updates">Latest Updates</a></li>
-              <li class="nav-item" role="none"><a role="menuitem" href="#contact">Contact</a></li>
+              <li class="nav-item" role="none"><a role="menuitem" href="index.html">Home</a></li>
+              <li class="nav-item" role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+              <li class="nav-item" role="none"><a role="menuitem" href="events.html">Events</a></li>
+              <li class="nav-item" role="none"><a role="menuitem" href="gallery.html">Gallery</a></li>
+              <li class="nav-item" role="none"><a role="menuitem" href="index.html#contact">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -56,36 +55,11 @@
     <section class="section events" id="events">
       <div class="container">
         <div class="section-intro">
-          
           <h2>Upcoming Events</h2>
           <p>Join us for community celebrations around Bell Buckle.</p>
+          <a class="section-link" href="events.html">See all events</a>
         </div>
-        <div class="event-grid">
-          <article class="event-card">
-            <div><img src="/images/placeholder.webp" class="event-image"></div>
-            <div class="event-copy">
-              <p class="event-date">Sat, Jun 20 · Bell Buckle City Center</p>
-              <h3>31st Annual RC-MoonPie Festival</h3>
-              <p>More Info</p>
-            </div>
-          </article>
-          <article class="event-card">
-            <div><img src="/images/placeholder.webp" class="event-image"></div>
-            <div class="event-copy">
-              <p class="event-date">Tue, Jun 23 · TVMR Club</p>
-              <h3>Model Railroad Movie Night Extravaganza</h3>
-              <p>Watch classic railroad films, share model stories, and meet other club members.</p>
-            </div>
-          </article>
-          <article class="event-card">
-            <div><img src="/images/placeholder.webp" class="event-image"></div>
-            <div class="event-copy">
-              <p class="event-date">Sat, Oct 17 · Bell Buckle City Center</p>
-              <h3>Webb Craft Show</h3>
-              <p>Visit our display during the Webb Craft Show and learn how to get involved with the club.</p>
-            </div>
-          </article>
-        </div>
+        <div class="event-grid" id="homepage-events"></div>
       </div>
     </section>
 
@@ -94,6 +68,7 @@
         <div class="section-intro">
           <h2>Photo Gallery</h2>
           <p>Preview the craftsmanship and atmosphere from our club layout, events, and member-built models.</p>
+          <a class="section-link" href="gallery.html">Browse the full gallery</a>
         </div>
 
         <div id="gallery-grid" class="gallery-grid"></div>
@@ -105,31 +80,9 @@
         <div class="section-intro">
           <h2>News from the club</h2>
           <p>Keep up with new additions, community highlights, and progress on our layout.</p>
+          <a class="section-link" href="blog.html">Visit the blog</a>
         </div>
-        <div class="blog-grid">
-          <article class="blog-card">
-            <div><img src="/images/placeholder.webp" class="blog-image"></div>
-            <div class="blog-copy">
-              <div class="blog-meta">
-                <p class="blog-author">TVMR Staff</p>
-                <p class="blog-date">June 12, 2026</p>
-              </div>
-              <h3>Inspiring future model railroaders</h3>
-              <p>Model railroading is more than a hobby; it’s a gateway to creativity, engineering, and community.</p>
-            </div>
-          </article>
-          <article class="blog-card">
-            <div><img src="/images/placeholder.webp" class="blog-image"></div>
-            <div class="blog-copy">
-              <div class="blog-meta">
-                <p class="blog-author">Club Reporter</p>
-                <p class="blog-date">June 26, 2026</p>
-              </div>
-              <h3>New additions coming soon</h3>
-              <p>Our members are building new pieces and preparing fresh displays for visitors of all ages.</p>
-            </div>
-          </article>
-        </div>
+        <div class="blog-grid" id="homepage-blog-list"></div>
       </div>
     </section>
 

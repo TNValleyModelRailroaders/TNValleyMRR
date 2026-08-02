@@ -1,0 +1,7 @@
+{
+  "name": "tnvalleymrr",
+  "private": true,
+  "dependencies": {
+    "@octokit/rest": "^20.0.0"
+  }
+}

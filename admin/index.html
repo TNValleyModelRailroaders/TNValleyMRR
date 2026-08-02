@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Club Website Dashboard</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="admin.css">
   </head>
   <body>
     <header class="site-header">
@@ -25,12 +26,95 @@
       </div>
     </header>
 
-    <!-- If using Sveltia CMS (Recommended for 2026): -->
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
-    
-    <!-- OR, if you prefer Decap CMS, uncomment the line below instead: -->
-    <!-- <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script> -->
+    <main class="admin-shell">
+      <section class="admin-intro">
+        <h2>Add content to the site</h2>
+        <p>Select what you want to add, fill out the short form, and the site will update with your post, event, or photo.</p>
+      </section>
 
-    <script src="../main.js" charset="UTF-8"></script>
+      <div class="admin-picker" role="tablist" aria-label="Content type selector">
+        <button class="admin-type-button active" type="button" data-type="blog">Blog Post</button>
+        <button class="admin-type-button" type="button" data-type="event">Event</button>
+        <button class="admin-type-button" type="button" data-type="photo">Photo</button>
+      </div>
+
+      <form id="blog-form" class="admin-form" data-type="blog">
+        <div class="admin-form-grid">
+          <div class="admin-field full">
+            <label for="blog-title">Title</label>
+            <input id="blog-title" name="title" type="text" required>
+          </div>
+          <div class="admin-field">
+            <label for="blog-author">Author</label>
+            <input id="blog-author" name="author" type="text" required>
+          </div>
+          <div class="admin-field">
+            <label for="blog-date">Date</label>
+            <input id="blog-date" name="date" type="date" required>
+          </div>
+          <div class="admin-field full">
+            <label for="blog-excerpt">Short summary</label>
+            <textarea id="blog-excerpt" name="excerpt" required></textarea>
+          </div>
+          <div class="admin-field full">
+            <label for="blog-content">Full content</label>
+            <textarea id="blog-content" name="content" required></textarea>
+          </div>
+          <div class="admin-field full">
+            <label for="blog-image">Post image</label>
+            <input id="blog-image" name="image" type="file" accept="image/*" required>
+          </div>
+        </div>
+        <button class="submit-button" type="submit">Save blog post</button>
+      </form>
+
+      <form id="event-form" class="admin-form" data-type="event" style="display:none;">
+        <div class="admin-form-grid">
+          <div class="admin-field full">
+            <label for="event-title">Event name</label>
+            <input id="event-title" name="title" type="text" required>
+          </div>
+          <div class="admin-field">
+            <label for="event-date">Date</label>
+            <input id="event-date" name="date" type="date" required>
+          </div>
+          <div class="admin-field">
+            <label for="event-location">Location</label>
+            <input id="event-location" name="location" type="text" required>
+          </div>
+          <div class="admin-field full">
+            <label for="event-description">Short description</label>
+            <textarea id="event-description" name="description" required></textarea>
+          </div>
+          <div class="admin-field full">
+            <label for="event-link">Details link</label>
+            <input id="event-link" name="link" type="url" placeholder="https://">
+          </div>
+          <div class="admin-field full">
+            <label for="event-image">Event image</label>
+            <input id="event-image" name="image" type="file" accept="image/*">
+          </div>
+        </div>
+        <button class="submit-button" type="submit">Save event</button>
+      </form>
+
+      <form id="photo-form" class="admin-form" data-type="photo" style="display:none;">
+        <div class="admin-form-grid">
+          <div class="admin-field full">
+            <label for="photo-title">Caption</label>
+            <input id="photo-title" name="title" type="text" required>
+          </div>
+          <div class="admin-field full">
+            <label for="photo-file">Upload photo</label>
+            <input id="photo-file" name="image" type="file" accept="image/*" required>
+          </div>
+        </div>
+        <button class="submit-button" type="submit">Save photo</button>
+      </form>
+
+      <div id="admin-status" class="admin-status" role="status"></div>
+    </main>
+
+    <script src="admin.js"></script>
   </body>
 </html>

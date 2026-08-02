@@ -1,0 +1,132 @@
+body {
+  background: linear-gradient(180deg, #fffdf8 0%, #f7fce9 100%);
+  color: #102c17;
+}
+
+.admin-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+
+.admin-intro {
+  background: linear-gradient(135deg, #d8ffcf 0%, #fffaf2 100%);
+  border: 1px solid rgba(13, 73, 12, 0.12);
+  border-radius: 24px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 18px 40px rgba(13, 73, 12, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.admin-intro h2 {
+  margin: 0 0 0.5rem;
+  color: #0d490c;
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+}
+
+.admin-intro p {
+  margin: 0;
+  color: #102c17;
+  font-size: 1rem;
+}
+
+.admin-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-type-button {
+  border: 1px solid rgba(13, 73, 12, 0.14);
+  background: #fffaf2;
+  color: #0d490c;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-type-button.active {
+  background: #0d490c;
+  color: #fffaf2;
+}
+
+.admin-form {
+  background: #fffaf2;
+  border: 1px solid rgba(13, 73, 12, 0.12);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 34px rgba(13, 73, 12, 0.08);
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.admin-field.full {
+  grid-column: 1 / -1;
+}
+
+.admin-field label {
+  color: #0d490c;
+  font-weight: 700;
+}
+
+.admin-field input,
+.admin-field textarea {
+  border: 1px solid rgba(13, 73, 12, 0.18);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  background: #ffffff;
+  color: #102c17;
+}
+
+.admin-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.1rem;
+  background: #0d490c;
+  color: #fffaf2;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-status {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #d8ffcf;
+  color: #0d490c;
+  border: 1px solid rgba(13, 73, 12, 0.12);
+  display: none;
+}
+
+.admin-status.show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .admin-shell {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
