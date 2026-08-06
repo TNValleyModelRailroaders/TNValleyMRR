@@ -1,5 +1,14 @@
+/* Colors */
+/* 
+#D8FFCF-mint green
+#0D490C-dark green
+#8B0000-red
+#408758-green
+#FFFAF2-cream
+ */
+
 body {
-  background: linear-gradient(180deg, #fffdf8 0%, #f7fce9 100%);
+  background: linear-gradient(225deg, #D8FFCF 20%, #0D490C 80%);
   color: #102c17;
 }
 
