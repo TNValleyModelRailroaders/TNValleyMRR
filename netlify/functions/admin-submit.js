@@ -37,11 +37,13 @@ exports.handler = async function (event) {
   try {
     const contentFilePath = 'data/content.json';
     let siteContent = { blogPosts: [], events: [], gallery: [] };
+    let contentFileSha;
 
     try {
       const existingFile = await octokit.repos.getContent({ owner, repo: repoName, path: contentFilePath, ref: branch });
       if (!Array.isArray(existingFile.data)) {
         siteContent = JSON.parse(Buffer.from(existingFile.data.content, 'base64').toString('utf8'));
+        contentFileSha = existingFile.data.sha;
       }
     } catch (error) {
       // File does not exist yet; start with defaults.
@@ -112,14 +114,20 @@ exports.handler = async function (event) {
       });
     }
 
-    await octokit.repos.createOrUpdateFileContents({
+    const contentUpdate = {
       owner,
       repo: repoName,
       path: contentFilePath,
       message: `Add ${type} content: ${title}`,
       content: Buffer.from(JSON.stringify(siteContent, null, 2)).toString('base64'),
       branch
-    });
+    };
+
+    if (contentFileSha) {
+      contentUpdate.sha = contentFileSha;
+    }
+
+    await octokit.repos.createOrUpdateFileContents(contentUpdate);
 
     return {
       statusCode: 200,

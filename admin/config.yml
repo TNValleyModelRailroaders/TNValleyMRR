@@ -1,7 +1,7 @@
 # 1. Backend Settings: Tells the CMS to talk directly to your GitHub repo
 backend:
   name: github
-  repo: https://github.com/mezishir/TNValleyMRR # Change this to your actual repo
+  repo: TNValleyModelRailroaders/TNValleyMRR
   branch: main # The branch where site files live
 
 # 2. Media Settings: Global folder where uploaded layout images go

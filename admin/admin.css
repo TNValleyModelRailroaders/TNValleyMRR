@@ -1,41 +1,104 @@
-/* Colors */
-/* 
-#D8FFCF-mint green
-#0D490C-dark green
-#8B0000-red
-#408758-green
-#FFFAF2-cream
- */
+:root {
+  --admin-ink: #182326;
+  --admin-panel: #fffaf2;
+  --admin-paper: #f4efe2;
+  --admin-green: #0d490c;
+  --admin-mint: #d8ffcf;
+  --admin-signal: #e2ad45;
+  --admin-red: #8b0000;
+  --admin-line: rgba(24, 35, 38, 0.18);
+}
 
 body {
-  background: linear-gradient(225deg, #D8FFCF 20%, #0D490C 80%);
-  color: #102c17;
+  background-color: var(--admin-ink);
+  background-image: linear-gradient(135deg, rgba(255, 250, 242, 0.04) 25%, transparent 25%), linear-gradient(315deg, rgba(226, 173, 69, 0.06) 25%, transparent 25%);
+  background-position: 0 0, 16px 16px;
+  background-size: 32px 32px;
+  color: var(--admin-ink);
+}
+
+.site-header {
+  position: relative;
+  background: #182326;
+  border-bottom: 4px solid #e2ad45;
+  box-shadow: 0 8px 20px rgba(24, 35, 38, 0.22);
+}
+
+.header-inner {
+  padding: 0.65rem 1.5rem;
+}
+
+.site-header #title {
+  text-align: left;
+}
+
+.site-header #title h1 {
+  margin: 0;
+  color: #fffaf2;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  line-height: 1;
+}
+
+.site-header #title p {
+  margin-top: 0.35rem;
+  color: #e2ad45;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-header .dropbtn {
+  min-width: 104px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #e2ad45;
+  border-radius: 4px;
+  background: #e2ad45;
+  box-shadow: none;
+  color: #182326;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
 }
 
 .admin-shell {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2.25rem 1.25rem 4rem;
+  padding: 2rem 1.25rem 4rem;
 }
 
 .admin-intro {
-  background: linear-gradient(135deg, #d8ffcf 0%, #fffaf2 100%);
-  border: 1px solid rgba(13, 73, 12, 0.12);
-  border-radius: 24px;
-  padding: 2rem 2.25rem;
-  box-shadow: 0 18px 40px rgba(13, 73, 12, 0.08);
-  margin-bottom: 1.25rem;
+  position: relative;
+  background: var(--admin-panel);
+  border: 1px solid var(--admin-line);
+  border-left: 8px solid var(--admin-signal);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.admin-intro::before {
+  content: "DISPATCH PANEL / LINE 01";
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--admin-red);
+  font-family: "Nunito", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
 }
 
 .admin-intro h2 {
   margin: 0 0 0.5rem;
-  color: #0d490c;
+  color: var(--admin-green);
   font-size: clamp(1.8rem, 3vw, 2.35rem);
 }
 
 .admin-intro p {
   margin: 0;
-  color: #102c17;
+  color: #3f4a45;
   font-size: 1rem;
 }
 
@@ -43,30 +106,57 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 250, 242, 0.14);
+  border-radius: 6px;
+  background: rgba(24, 35, 38, 0.72);
+}
+
+.admin-picker::before {
+  content: "CONTENT ROUTING";
+  flex-basis: 100%;
+  color: var(--admin-signal);
+  font-family: "Nunito", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
 }
 
 .admin-type-button {
-  border: 1px solid rgba(13, 73, 12, 0.14);
-  background: #fffaf2;
-  color: #0d490c;
+  border: 1px solid rgba(255, 250, 242, 0.3);
+  background: transparent;
+  color: var(--admin-panel);
   padding: 0.7rem 1rem;
-  border-radius: 999px;
+  border-radius: 4px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .admin-type-button.active {
-  background: #0d490c;
-  color: #fffaf2;
+  border-color: var(--admin-signal);
+  background: var(--admin-signal);
+  color: var(--admin-ink);
 }
 
 .admin-form {
-  background: #fffaf2;
-  border: 1px solid rgba(13, 73, 12, 0.12);
-  border-radius: 24px;
+  background: var(--admin-panel);
+  border: 1px solid var(--admin-line);
+  border-radius: 6px;
   padding: 1.5rem;
-  box-shadow: 0 14px 34px rgba(13, 73, 12, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.admin-form::before {
+  content: "CREW ENTRY / READY FOR DISPATCH";
+  display: block;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--admin-line);
+  color: #68716b;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
 }
 
 .admin-form-grid {
@@ -86,18 +176,18 @@ body {
 }
 
 .admin-field label {
-  color: #0d490c;
+  color: var(--admin-green);
   font-weight: 700;
 }
 
 .admin-field input,
 .admin-field textarea {
-  border: 1px solid rgba(13, 73, 12, 0.18);
-  border-radius: 12px;
+  border: 1px solid var(--admin-line);
+  border-radius: 4px;
   padding: 0.7rem 0.8rem;
   font: inherit;
-  background: #ffffff;
-  color: #102c17;
+  background: var(--admin-paper);
+  color: var(--admin-ink);
 }
 
 .admin-field textarea {
@@ -108,10 +198,10 @@ body {
 .submit-button {
   margin-top: 1rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 0.8rem 1.1rem;
-  background: #0d490c;
-  color: #fffaf2;
+  background: var(--admin-green);
+  color: var(--admin-panel);
   font-weight: 700;
   cursor: pointer;
 }
@@ -119,10 +209,10 @@ body {
 .admin-status {
   margin-top: 1rem;
   padding: 0.9rem 1rem;
-  border-radius: 12px;
-  background: #d8ffcf;
-  color: #0d490c;
-  border: 1px solid rgba(13, 73, 12, 0.12);
+  border-radius: 4px;
+  background: var(--admin-mint);
+  color: var(--admin-green);
+  border: 1px solid rgba(13, 73, 12, 0.24);
   display: none;
 }
 
