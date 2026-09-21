@@ -71,7 +71,9 @@ let galleryItems = [];
 
 async function loadSiteContent() {
   try {
-    const response = await fetch('/data/content.json');
+    const response = await fetch(`/data/content.json?v=${Date.now()}`, {
+      cache: 'no-store'
+    });
     if (!response.ok) {
       throw new Error('Content file unavailable');
     }
@@ -79,7 +81,9 @@ async function loadSiteContent() {
     const data = await response.json();
 
     if (Array.isArray(data.blogPosts) && data.blogPosts.length) {
-      blogPosts = data.blogPosts;
+      blogPosts = data.blogPosts.sort((firstPost, secondPost) => {
+        return new Date(secondPost.date) - new Date(firstPost.date);
+      });
     }
 
     if (Array.isArray(data.events) && data.events.length) {
@@ -187,7 +191,7 @@ function renderHomepageContent() {
   }
 
   if (homepageBlogList) {
-    blogPosts.slice(0, 2).forEach((post) => homepageBlogList.appendChild(createBlogCard(post)));
+    blogPosts.slice(0, 3).forEach((post) => homepageBlogList.appendChild(createBlogCard(post)));
   }
 }
 

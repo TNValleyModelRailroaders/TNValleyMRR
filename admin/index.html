@@ -33,6 +33,15 @@
   </header>
 
     <main class="admin-shell">
+      <section id="auth-gate" class="auth-gate" aria-live="polite">
+        <h2>Member access required</h2>
+        <p>Sign in with your Tennessee Valley Model Railroaders member account to open the control desk.</p>
+        <button id="login-button" class="submit-button" type="button">Sign in</button>
+        <button id="logout-button" class="auth-logout" type="button" hidden>Sign out</button>
+        <p id="auth-status" class="auth-status">Checking your member access...</p>
+      </section>
+
+      <div id="admin-app" hidden>
       <section class="admin-intro">
         <h2>Choose Your Dispatch</h2>
         <p>Pick a route, fill in the details, and send it rolling. Toot Toot!</p>
@@ -119,8 +128,10 @@
       </form>
 
       <div id="admin-status" class="admin-status" role="status"></div>
+      </div>
     </main>
 
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="admin.js"></script>
   </body>
 </html>

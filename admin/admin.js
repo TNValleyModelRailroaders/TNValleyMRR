@@ -5,6 +5,31 @@ const forms = {
   photo: document.getElementById('photo-form')
 };
 const statusBox = document.getElementById('admin-status');
+const authGate = document.getElementById('auth-gate');
+const adminApp = document.getElementById('admin-app');
+const loginButton = document.getElementById('login-button');
+const logoutButton = document.getElementById('logout-button');
+const authStatus = document.getElementById('auth-status');
+
+function updateMemberAccess(user) {
+  const signedIn = Boolean(user);
+  adminApp.hidden = !signedIn;
+  loginButton.hidden = signedIn;
+  logoutButton.hidden = !signedIn;
+  authStatus.textContent = signedIn
+    ? `Signed in as ${user.email}.`
+    : 'Sign in with an approved member account to continue.';
+}
+
+loginButton.addEventListener('click', () => window.netlifyIdentity.open('login'));
+logoutButton.addEventListener('click', () => window.netlifyIdentity.logout());
+
+window.netlifyIdentity.on('init', updateMemberAccess);
+window.netlifyIdentity.on('login', (user) => {
+  updateMemberAccess(user);
+  window.netlifyIdentity.close();
+});
+window.netlifyIdentity.on('logout', () => updateMemberAccess(null));
 
 function setActiveType(type) {
   contentTypeButtons.forEach((button) => {
@@ -93,10 +118,16 @@ async function handleSubmission(event) {
       params.set('image', JSON.stringify(convertedFile));
     }
 
+    const token = window.netlifyIdentity.currentUser()?.token?.access_token;
+    if (!token) {
+      throw new Error('Your member session has expired. Please sign in again.');
+    }
+
     const response = await fetch('/.netlify/functions/admin-submit', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        Authorization: `Bearer ${token}`
       },
       body: params.toString()
     });

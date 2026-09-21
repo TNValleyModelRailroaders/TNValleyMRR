@@ -1,11 +1,18 @@
 const path = require('path');
 const { Octokit } = require('@octokit/rest');
 
-exports.handler = async function (event) {
+exports.handler = async function (event, context) {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
       body: JSON.stringify({ ok: false, message: 'Method not allowed' })
+    };
+  }
+
+  if (!context.clientContext?.user) {
+    return {
+      statusCode: 401,
+      body: JSON.stringify({ ok: false, message: 'Member authentication is required.' })
     };
   }
 

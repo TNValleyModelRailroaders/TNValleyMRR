@@ -68,6 +68,42 @@ body {
   padding: 2rem 1.25rem 4rem;
 }
 
+.auth-gate {
+  max-width: 620px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 1px solid var(--admin-line);
+  border-top: 8px solid var(--admin-signal);
+  border-radius: 6px;
+  background: var(--admin-panel);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.auth-gate h2 {
+  margin: 0 0 0.5rem;
+  color: var(--admin-green);
+}
+
+.auth-gate p {
+  color: #3f4a45;
+}
+
+.auth-status {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.auth-logout {
+  margin-top: 1rem;
+  border: 1px solid var(--admin-red);
+  border-radius: 4px;
+  padding: 0.65rem 0.9rem;
+  background: transparent;
+  color: var(--admin-red);
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .admin-intro {
   position: relative;
   background: var(--admin-panel);
