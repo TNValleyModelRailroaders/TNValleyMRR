@@ -240,7 +240,8 @@
   </footer>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    if (window.netlifyIdentity) {
+    const isIdentityInvite = window.location.hash.includes('invite_token=');
+    if (window.netlifyIdentity && isIdentityInvite) {
       window.netlifyIdentity.on('login', () => {
         window.location.href = '/admin/';
       });
