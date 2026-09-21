@@ -1,5 +1,15 @@
 {
-  "blogPosts": [],
+  "blogPosts": [
+    {
+      "slug": "2026-09-21-grandpa-s-farm",
+      "title": "Grandpa's Farm",
+      "author": "Club Member",
+      "date": "2026-09-21",
+      "image": "/images/blog/1790020062052-grandpa-s-farm.webp",
+      "excerpt": "Get ready for something big!",
+      "content": "Grandpa's farm is almost here! come see the newest addition to the layout!"
+    }
+  ],
   "events": [],
   "gallery": []
 }
